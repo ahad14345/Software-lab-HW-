@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>University Management System</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<main class="shell">
+    <section id="login-view" class="login-card">
+        <div class="brand-mark">UM</div>
+        <p class="eyebrow">CSE 3230 · Lab 4</p>
+        <h1>University Management System</h1>
+        <p class="muted">Sign in to manage university users through the secured REST API.</p>
+        <form id="login-form">
+            <label>Username<input id="username" required autocomplete="username"></label>
+            <label>Password<input id="password" type="password" required autocomplete="current-password"></label>
+            <button type="submit">Sign in</button>
+            <p id="login-error" class="error" role="alert"></p>
+        </form>
+        <p class="hint">Default development account: <strong>admin</strong> / <strong>admin123</strong></p>
+    </section>
+
+    <section id="app-view" class="app-view hidden">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">CSE 3230 · Lab 4</p>
+                <h1>University Management System</h1>
+            </div>
+            <div class="session">
+                <span id="session-user"></span>
+                <span id="session-role" class="role-badge"></span>
+                <button id="logout" class="button-secondary">Log out</button>
+            </div>
+        </header>
+        <div id="notice" class="notice hidden"></div>
+        <nav id="tabs" class="tabs" aria-label="Resources"></nav>
+        <section class="content-grid">
+            <div class="panel">
+                <div class="panel-heading">
+                    <div><p class="eyebrow">REST resource</p><h2 id="resource-title"></h2></div>
+                    <button id="refresh" class="button-secondary">Refresh</button>
+                </div>
+                <div id="table-container"></div>
+            </div>
+            <aside class="panel form-panel">
+                <p class="eyebrow">CRUD operation</p>
+                <h2 id="form-title">Create user</h2>
+                <form id="user-form">
+                    <input id="user-id" type="hidden">
+                    <label>Username<input id="form-username" required></label>
+                    <label>Password<input id="form-password" type="password" placeholder="Required for new users"></label>
+                    <label>Full name<input id="form-fullName"></label>
+                    <label>Email<input id="form-email" type="email"></label>
+                    <label>Phone<input id="form-phone"></label>
+                    <label>Department<input id="form-department"></label>
+                    <label>Address<textarea id="form-address" rows="2"></textarea></label>
+                    <label id="role-field">Role
+                        <select id="form-role">
+                            <option value="ADMIN">Admin</option>
+                            <option value="TEACHER">Teacher</option>
+                            <option value="STUDENT">Student</option>
+                        </select>
+                    </label>
+                    <div class="form-actions">
+                        <button type="submit" id="save-user">Create user</button>
+                        <button type="button" id="cancel-edit" class="button-secondary hidden">Cancel</button>
+                    </div>
+                    <p id="form-error" class="error" role="alert"></p>
+                </form>
+            </aside>
+        </section>
+    </section>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>
